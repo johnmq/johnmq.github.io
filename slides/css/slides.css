@@ -1,0 +1,70 @@
+body {
+  font-family: 'PT Sans', sans-serif;
+
+  min-height: 740px;
+
+  color: #e5e5e5;
+
+  background: #1C1E20;
+  background: -webkit-gradient(radial, center center, 0px, center center, 500, color-stop(0%, #555a5f), color-stop(100%, #1c1e20));
+  background: -webkit-radial-gradient(#555A5F 0%, #1C1E20 100%);
+  background: -moz-radial-gradient(#555a5f 0%, #1c1e20 100%);
+  background: -o-radial-gradient(#555a5f 0%, #1c1e20 100%);
+  background: -ms-radial-gradient(#555a5f 0%, #1c1e20 100%);
+  background: radial-gradient(#555a5f 0%, #1c1e20 100%);
+  background-color: #2B2B2B;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+b, strong { font-weight: bold }
+i, em { font-style: italic}
+
+/* enable clicking on elements 'hiding' behind body in 3D */
+body     { pointer-events: none; }
+#impress { pointer-events: auto; }
+
+a {
+  color: inherit;
+}
+
+/* Common steps styles */
+.step {
+  width: 900px;
+  padding: 40px;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  -ms-box-sizing:     border-box;
+  -o-box-sizing:      border-box;
+  box-sizing:         border-box;
+
+  font-family: 'PT Serif', georgia, serif;
+
+  font-size: 56px;
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+.step {
+  -webkit-transition: opacity 1s;
+  -moz-transition:    opacity 1s;
+  -ms-transition:     opacity 1s;
+  -o-transition:      opacity 1s;
+  transition:         opacity 1s;
+}
+
+/* fade out inactive slides */
+.step:not(.active) {
+  opacity: 0.3;
+}
+
+/* typography */
+h1 {
+  font-size: 168px;
+}
+
+h2 {
+  font-size: 112px;
+}

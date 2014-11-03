@@ -1,0 +1,29 @@
+# title:
+========
+
+I want to present a messaging queue (or bus) in rust. JohnMQ.
+
+Remark: it is still work in progress and not production ready.  Contributions
+are welcome :) Actually I'm looking for a few collaborators.
+
+# story:
+========
+
+Why having a high-performance and reliable messaging bus is important?  I will
+tell you my story.
+
+# microservices:
+================
+
+Microservices.
+
+A relatively new fashionable word in a software development world.  If you
+don't know what it is, then you can google it and read an article from Martin
+Fowler.
+
+# monolith-vs-micro:
+====================
+
+I have been through a bunch of huge monolithic code bases already. It doesn't
+feel good and great to work with. Deploy is a pain, bug hunting is a pain, one
+tests run takes way too long. And complexity never stops increasing.

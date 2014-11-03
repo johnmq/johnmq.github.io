@@ -1,0 +1,8 @@
+/* impress not supported styles */
+.impress-supported .fallback-message {
+  display: none;
+}
+
+.impress-not-supported .fallback-message {
+  display: block;
+}
