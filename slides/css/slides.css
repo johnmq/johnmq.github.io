@@ -68,3 +68,14 @@ h1 {
 h2 {
   font-size: 112px;
 }
+
+/* slide by slide */
+div.img-item {
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+}
+
+div.img-item span.caption {
+  display: block;
+}

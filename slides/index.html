@@ -51,7 +51,100 @@
   </p>
 </div>
 
-<div id="monolith-vs-micro" class="step slide" data-x="1000" data-y="1000" data-scale="1.5">
+<div id="monolith-vs-micro" class="step slide" data-x="1000" data-y="1500" data-scale="1.5">
+  <div class="img-item">
+    <img src="img/monolithic.png" alt="Monolithic/Layered" width="350">
+    <span class="caption">Monolithic</span>
+  </div>
+  <div class="vs img-item">VS</div>
+  <div class="img-item">
+    <img src="img/microservices.png" alt="Microservices" width="350">
+    <span class="caption">Microservices</span>
+  </div>
+</div>
+
+<div id="sync-vs-async" class="step slide" data-x="1000" data-y="2500" data-scale="1.5">
+  <h2>Communication?</h2>
+  <div class="img-item">
+    <img src="img/microservices-api.png" alt="API (sync)" width="350">
+    <span class="caption">API</span>
+  </div>
+  <div class="vs img-item">VS</div>
+  <div class="img-item">
+    <img src="img/microservices-bus.png" alt="Message Bus (async)" width="350">
+    <span class="caption">Message bus</span>
+  </div>
+</div>
+
+<div id="rivers-of-data" class="step slide" data-x="0" data-y="1000">
+  <h2>Rivers of data</h2>
+</div>
+
+<div id="kafka" class="step slide" data-x="2000" data-y="0">
+  <h2>Inspired by Apache Kafka</h2>
+  <div class="link">
+    <a href="http://kafka.apache.org/">kafka.apache.org</a>
+  </div>
+</div>
+
+<div id="kafka-details" class="step slide" data-x="2300" data-y="700">
+  <h2>Messaging Bus</h2>
+  <p>on top of JVM</p>
+  <p>High-performance</p>
+  <p>Persistent and reliable</p>
+  <p>Simple. Except...</p>
+</div>
+
+<div id="zookeeper" class="step slide" data-x="2500" data-y="1400">
+  <h2>Apache Zookeeper</h2>
+  <div class="link">
+    <a href="http://zookeeper.apache.org/">zookeeper.apache.org</a>
+  </div>
+  <p>Server for distributed coordination</p>
+  <p>on top of JVM</p>
+  <p>as a dependency of Kafka</p>
+</div>
+
+<div id="borrow-idea" class="step slide" data-x="2500" data-y="2100">
+  <h2>Borrow main idea</h2>
+  <p>Fast sequential appends</p>
+  <p>Fast sequential reads</p>
+  <p>Let Linux Kernel handle everything</p>
+</div>
+
+<div id="why-rust" class="step slide" data-x="3500" data-y="0">
+  <h2>Why Rust?</h2>
+</div>
+
+<div id="undefined-nil" class="step slide" data-x="3500" data-y="-500">
+  <pre><code>
+    `NoMethodError (undefined method
+    'message' for nil:NilClass)`
+  </code></pre>
+</div>
+
+<div id="why-raft" class="step slide" data-x="4500" data-y="0">
+  <h2>Why Raft?</h2>
+</div>
+
+<div id="raft-consensus" class="step slide" data-x="4500" data-y="-500">
+  <h2>The Raft Consensus Algorithm</h2>
+  <div class="link">
+    <a href="http://raftconsensus.github.io/">raftconsensus.github.io</a>
+  </div>
+</div>
+
+<div id="raft-awesome" class="step slide" data-x="4500" data-y="-1000">
+  <p>Simple and awesome</p>
+  <p>Growing community</p>
+  <p>No implementation in Rust</p>
+</div>
+
+<div id="raft-rs" class="step slide" data-x="4500" data-y="-1500">
+  <h2>raft-rs</h2>
+  <div class="link">
+    <a href="https://github.com/johnmq/raft-rs">github.com/johnmq/raft-rs</a>
+  </div>
 </div>
 
 </div>

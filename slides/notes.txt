@@ -27,3 +27,111 @@ Fowler.
 I have been through a bunch of huge monolithic code bases already. It doesn't
 feel good and great to work with. Deploy is a pain, bug hunting is a pain, one
 tests run takes way too long. And complexity never stops increasing.
+
+Until you start splitting it to a smaller applications (aka, services). And it
+turns out to help in reducing this harsh complexity of monolith. Just imagine
+dealing with 200 SLOCs instead of 60K SLOCs when trying to find a bug. You can
+even rewrite the thing from scratch if you are too lazy to find a bug.
+
+Microservices enable you to deploy them separately and independently. Yes, in
+monolithic application you can wonder why this update to admin interface has
+brought your entire application down?
+
+But that is not all to it. Turns out you can build SOA in two different ways
+(and mix them of course).
+
+# sync-vs-async:
+================
+
+First one is the API kind of communication. Every service knows other services
+he needs to communicate with. It has increased complexity and coupling.
+Basically, no huge difference from monolith.
+
+Second one is the Message Bus kind of communication. Every service doesn't care
+about any other services, he knows only his own stuff and issues a bunch of
+events when something happens inside of him. And he listens for some specific
+events and react accordingly when they happen. It reduces coupling of services
+almost down to zero. It is a huge win over monolith.
+
+In real world applications you would mix both types of communication, because
+you can't just send all the data to message bus, often you will send some basic
+data about event that happened and a link to service API to fetch details of
+this event, or associated data for this event.
+
+# rivers-of-data:
+=================
+
+This type of communication generates a lot of data in form of events that is
+happened. And it is worth to persist this data for some time and not throw away
+it once it is processed.
+
+For example, you can replay some situation from production on your developer
+laptop simply by copying related events and "replaying" on them suspected
+subset of microservices and see how they behave. Without a need to run and
+setup special case for services that generate these events!
+
+Logging, monitoring, performance analysis - everything can be done based on
+this data. At realtime!
+
+These non-stopping events are basically a flows of data. And you can have
+different flows in your application. In JohnMQ they are called Rivers of data.
+
+# kafka:
+========
+
+
+# kafka-details:
+================
+
+Seems like the same as what I am trying to build. But it has one annoying
+dependency.
+
+# zookeeper:
+============
+
+Yes. You need to setup another distributed servers to manage distributed kafka
+instances. Seems like a lot of overhead for me. And it is not that easy to
+setup, especially in highly isolated environments. For example Docker. And it
+is impractically to run it on cloud just to play with. It will not be for free
+obviously (because you need to run minimum of 2 jvm services, which will max
+out all memory limits on free instances). Try to run it on Heroku for example.
+
+# borrow-idea:
+==============
+
+So, tell how it works and why the heck this thing is fast and reliable.
+
+# why-rust:
+===========
+
+Because I hate this...
+
+# undefined-nil:
+================
+
+(show error message): `NoMethodError (undefined method 'message' for nil:NilClass)`
+
+In production.
+
+And Rust lang is awesome. It type system, ownership system are great and suite my tastes.
+Simply, I love it.
+
+# why-raft:
+===========
+
+# raft-consensus:
+=================
+
+# raft-awesome:
+===============
+
+It would be great to have production-ready implementation of Raft in Rust.
+There are a bunch of implementations out there (you can find them on github).
+But 4 commits and "Experimentation" is just wrong attitude to build something
+related to high reliability and consensus.
+
+# raft-rs:
+==========
+
+Contributions are welcome. And if someone want to do pair-coding or even
+gangbang-coding on it, would be awesome.
