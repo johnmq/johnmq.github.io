@@ -222,6 +222,16 @@ involve lifetimes. Often it does involve parametric types and traits :)
 [Basic info about Clone, Show, Send and PartialEq and when it is reasonable to
 derive from them and when to accept them as arguments]
 
+// Clone     - for cloning non-owned resources to
+//             make actions that require ownership
+//             over them
+// Show      - if you ever want to log the value of
+//             this enum
+// Send      - if you ever want to send it over
+//             channel to a different task
+// PartialEq - if you want to check if two instances
+//             of this enum are the same
+
 # tdd:
 ======
 
