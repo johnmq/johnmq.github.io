@@ -135,3 +135,108 @@ related to high reliability and consensus.
 
 Contributions are welcome. And if someone want to do pair-coding or even
 gangbang-coding on it, would be awesome.
+
+# how:
+======
+
+How can we implement it right and get it production ready at a good pace?
+
+# your-help:
+============
+
+If somebody moved by the idea of this project. You are free to contact me, it
+would be great to collaborate on this together (since I totally love
+pair-coding and swarming, and it is so boring to do it on myself).
+
+I feel this project, given right amount of effort can bring a lot of benefit to
+Rust community. First step is done - it is a Raft library. And I already see
+some other libraries in the future, like HTTP, TCP, RPC, integrations with
+different cloud providers for Rust, etc. It shouldn't be only libraries created
+by this community, but highly possibly as a contribution to other communities
+libraries since we will use them.
+
+# tips-tricks:
+==============
+
+And now a bonus. Tips and tricks for Rust, that I have already come up with during development of JohnMQ and raft-rs.
+
+# traits:
+=========
+
+When building a general purpose libraries you'll often find a need to expose
+some kind of abstraction and let users of your library to implement specific
+interface to make the library work in their domain. That is what I am doing
+while implementing raft-rs. I expose a bunch of public traits for users of my
+library to implement.
+
+[click the link]
+
+Intercommunication - abstraction from communication between nodes in
+distributed system. It doesn't matter for Raft consensus how communication is
+done until it works consistently.
+
+Committable - is the piece of data (a command) you can commit. Basically it is
+a first-class object in your consensus. A database transaction, an action in
+your domain, log append message in JohnMQ, etc.
+
+Receivable and Queriable - a way to query a current state of distributed
+system. If Committable is used to modify state of the system, then these two
+used to query this state.
+
+LogPersistance - a way to commit your Committable entries. Again it could
+differ for different domains.
+
+ReplicationLog - an abstraction that can hold committed and uncommitted entries
+in a form of log, allows to enqueue them, discard when needed and actually do a
+commit for them. Additionally it allows you to query current state of a
+distributed system (as I look on it, this method does not belong here, so
+probably it is subject to have its own public trait).
+
+# 50-to-karma:
+==============
+
+#![deny(missing_docs)] - Forces you to document all public things you implement
+in your library. So that you can generate documentation out of that and help
+your users understand and use your library.
+
+#![deny(warnings)] - Forces you to fix all warnings in your code. It is a good
+thing to do. And personally warnings are annoying especially to users of your
+library when they are building it.
+
+This stuff really works. It adds +50 to karma. And frequency of trains being
+delayed when you want to get somewhere in hurry really drops :)
+
+# avoid-lifetimes:
+==================
+
+At least try to do that. It is just my personal advice and I could be wrong.
+But whenever compiler starts complain about lifetimes and asks me to explicitly
+specify it, I stop and read my code again, and after that I see a better
+solution to a problem that is easier to implement, better to read and doesn't
+involve lifetimes. Often it does involve parametric types and traits :)
+
+# deriving:
+===========
+
+[click the link]
+[Basic info about Clone, Show, Send and PartialEq and when it is reasonable to
+derive from them and when to accept them as arguments]
+
+# tdd:
+======
+
+TDD. During implementing of johnmq I have never ever run a binary until it was
+done and was actually working. The same goes for raft-rs.
+
+Start from integration tests that is being put in tests/ folder and proceed
+with unit tests when you struggle to implement some module of your library or
+system. Or when you unsure how this concrete piece of code will work.
+
+# questions:
+============
+
+# thanks:
+=========
+
+# links:
+========
